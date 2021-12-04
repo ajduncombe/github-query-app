@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { UserSearchInput } from "../components/user-search-input";
 
-const config = {
+export default {
   title: "App/Components/User Search Input",
   component: UserSearchInput,
 };
@@ -31,7 +31,7 @@ function Default(args) {
 }
 */
 
-function Default(args) {
+export const Default = () => {
   const handleOnSubmit = (value) => {
     return new Promise((resolve) => {
       setTimeout(() => {
@@ -43,6 +43,3 @@ function Default(args) {
 
   return <UserSearchInput onSubmit={handleOnSubmit} />;
 }
-
-export default config;
-export { Default };
