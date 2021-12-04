@@ -36,10 +36,6 @@ Result.args = {
       label: "No. of public repos",
       value: "999",
     },
-    {
-      label: "Test label",
-      value: "Test value",
-    },
   ],
   error: false,
 };

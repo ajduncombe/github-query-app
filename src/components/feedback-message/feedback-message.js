@@ -16,10 +16,6 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Typography from "@mui/material/Typography";
 
 export function FeedbackMessage({ submitting, response, error }) {
-  function createData(parameter, data) {
-    return { parameter, data };
-  }
-
   if (error) {
     return (
       <Card sx={{ maxWidth: 250 }}>
@@ -40,16 +36,9 @@ export function FeedbackMessage({ submitting, response, error }) {
         </CardContent>
       </Card>
     );
-  } else if (response.length > 0) {
-    let responses = response.map(({ label, value }) => [label, value]);
-    let rows = [];
-    for (let i = 0; i < responses.length; i++) {
-      rows.push(createData(responses[i][0], responses[i][1]));
-    }
-    console.log(rows);
-
+  } else if (response) {
     return (
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ maxWidth: 600 }}>
         <Table>
           <TableHead>
             <TableRow>
@@ -58,14 +47,10 @@ export function FeedbackMessage({ submitting, response, error }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.parameter}>
-                <TableCell>{row.parameter}</TableCell>
-                {error ? (
-                  <TableCell sx={{ fontStyle: "italic" }}>{row.data}</TableCell>
-                ) : (
-                  <TableCell>{row.data}</TableCell>
-                )}
+            {response.map(({ label: parameter, value }) => (
+              <TableRow key={parameter}>
+                <TableCell>{parameter}</TableCell>
+                <TableCell>{value}</TableCell>
               </TableRow>
             ))}
           </TableBody>
