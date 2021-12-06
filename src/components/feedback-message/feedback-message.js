@@ -18,7 +18,7 @@ import Typography from "@mui/material/Typography";
 export function FeedbackMessage({ submitting, response, error }) {
   if (error) {
     return (
-      <Card sx={{ maxWidth: 250 }}>
+      <Card>
         <CardContent>
           <Typography sx={{ textAlign: "center" }}>
             There was an error. Please check your input and try again.
@@ -28,7 +28,7 @@ export function FeedbackMessage({ submitting, response, error }) {
     );
   } else if (submitting) {
     return (
-      <Card sx={{ maxWidth: 250 }}>
+      <Card>
         <CardContent>
           <Box sx={{ display: "flex", justifyContent: "center" }}>
             <CircularProgress size="24px" />
@@ -38,12 +38,16 @@ export function FeedbackMessage({ submitting, response, error }) {
     );
   } else if (response) {
     return (
-      <TableContainer component={Paper} sx={{ maxWidth: 600 }}>
+      <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell align="left">Parameter</TableCell>
-              <TableCell align="left">Data</TableCell>
+              <TableCell align="left">
+                <b>Parameter</b>
+              </TableCell>
+              <TableCell align="left">
+                <b>Data</b>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -59,7 +63,7 @@ export function FeedbackMessage({ submitting, response, error }) {
     );
   } else {
     return (
-      <Card sx={{ maxWidth: 250 }}>
+      <Card>
         <CardContent>
           <Typography sx={{ textAlign: "center" }}>
             Your results will appear here.
