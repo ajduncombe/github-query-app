@@ -5,23 +5,18 @@ import { FeedbackMessage } from "../feedback-message";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-/>;
-
 export function MainView({ onSubmit, submitting, response, error }) {
   return (
     <Container
       sx={{
-        border: 1,
+        border: 2,
         borderRadius: 2,
-        borderColor: "primary.main",
+        borderColor: "text.disabled",
         padding: 2,
         width: 600,
       }}
     >
-      <Box sx={{ mx: "auto" }}>
+      <Box>
         <UserSearchInput onSubmit={onSubmit} />
       </Box>
       <Box sx={{ mt: 2 }}>
@@ -37,7 +32,7 @@ export function MainView({ onSubmit, submitting, response, error }) {
 
 MainView.propTypes = {
   onSubmit: PropTypes.func,
-  submitting: PropTypes.bool.isRequired,
+  submitting: PropTypes.bool,
   response: PropTypes.array,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.bool,
 };

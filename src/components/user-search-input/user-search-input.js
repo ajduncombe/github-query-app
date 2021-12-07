@@ -29,6 +29,7 @@ export function UserSearchInput({ onSubmit }) {
       style={{ display: "flex", alignItems: "center" }}
     >
       <TextField
+        fullWidth
         required
         id="outlined-required"
         label="GitHub username"
@@ -72,12 +73,5 @@ export function UserSearchInput({ onSubmit }) {
 }
 
 UserSearchInput.propTypes = {
-  inputValue: PropTypes.string,
   onSubmit: PropTypes.func,
-  handleOnSubmit: PropTypes.bool,
-  submitting: PropTypes.bool,
-};
-
-UserSearchInput.defaultProps = {
-  inputValue: null,
 };

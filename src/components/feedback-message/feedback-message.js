@@ -57,9 +57,9 @@ export function FeedbackMessage({ submitting, response, error }) {
 }
 
 FeedbackMessage.propTypes = {
-  submitting: PropTypes.bool.isRequired,
+  submitting: PropTypes.bool,
   response: PropTypes.array,
-  error: PropTypes.bool.isRequired,
+  error: PropTypes.bool,
 };
 
 FeedbackMessage.defaultProps = {
