@@ -1,7 +1,6 @@
 import { React } from "react";
 import { PropTypes } from "prop-types";
 import {
-  CardContent,
   Table,
   TableBody,
   TableCell,
@@ -10,67 +9,50 @@ import {
   TableRow,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
+import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CircularProgress from "@mui/material/CircularProgress";
-import Typography from "@mui/material/Typography";
 
 export function FeedbackMessage({ submitting, response, error }) {
   if (error) {
     return (
-      <Card>
-        <CardContent>
-          <Typography sx={{ textAlign: "center" }}>
-            There was an error. Please check your input and try again.
-          </Typography>
-        </CardContent>
-      </Card>
+      <Alert severity="error">
+        There was an error. Please check your input and try again.
+      </Alert>
     );
   } else if (submitting) {
-    return (
-      <Card>
-        <CardContent>
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <CircularProgress size="24px" />
-          </Box>
-        </CardContent>
-      </Card>
-    );
+    return <Alert severity="warning">Please wait.</Alert>;
   } else if (response) {
     return (
-      <TableContainer component={Paper}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell align="left">
-                <b>Parameter</b>
-              </TableCell>
-              <TableCell align="left">
-                <b>Data</b>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {response.map(({ label: parameter, value }) => (
-              <TableRow key={parameter}>
-                <TableCell>{parameter}</TableCell>
-                <TableCell>{value}</TableCell>
+      <Box>
+        <Alert severity="success">
+          The username &quot;{response[0].value}&quot; was found.
+        </Alert>
+        <TableContainer component={Paper} sx={{ mt: 2 }}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell align="left">
+                  <b>Parameter</b>
+                </TableCell>
+                <TableCell align="left">
+                  <b>Data</b>
+                </TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {response.map(({ label: parameter, value }) => (
+                <TableRow key={parameter}>
+                  <TableCell>{parameter}</TableCell>
+                  <TableCell>{value}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </Box>
     );
   } else {
-    return (
-      <Card>
-        <CardContent>
-          <Typography sx={{ textAlign: "center" }}>
-            Your results will appear here.
-          </Typography>
-        </CardContent>
-      </Card>
-    );
+    return <Alert severity="info">Your results will appear below.</Alert>;
   }
 }
 

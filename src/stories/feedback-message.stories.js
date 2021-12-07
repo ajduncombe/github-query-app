@@ -25,7 +25,7 @@ Result.args = {
   submitting: false,
   response: [
     {
-      label: "Login",
+      label: "Username",
       value: "ajduncombe",
     },
     {

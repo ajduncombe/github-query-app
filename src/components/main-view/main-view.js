@@ -16,6 +16,7 @@ export function MainView({ onSubmit, submitting, response, error }) {
       sx={{
         border: 1,
         borderRadius: 2,
+        borderColor: "primary.main",
         padding: 2,
         width: 600,
       }}
