@@ -1,4 +1,6 @@
 import React from "react";
+import { action } from "@storybook/addon-actions";
+import { userEvent, within } from "@storybook/testing-library";
 import { UserSearchInput } from "../components/user-search-input";
 
 export default {
@@ -6,32 +8,37 @@ export default {
   component: UserSearchInput,
 };
 
-/*
-export const Default = () => {
-  const handleOnSubmit = (value) => {
+const Template = (args) => <UserSearchInput {...args} />;
+
+Template.args = {
+  onSubmit: async (query) => {
+    action("onSubmit")(query);
+
     return new Promise((resolve) => {
       setTimeout(() => {
-        console.log("The form value is:", value);
         resolve();
       }, [2000]);
     });
-  };
-
-  return <UserSearchInput onSubmit={handleOnSubmit} />;
-};
-*/
-
-const Template = () => {
-  const handleOnSubmit = (value) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        console.log("The form value is:", value);
-        resolve();
-      }, [2000]);
-    });
-  };
-
-  return <UserSearchInput onSubmit={handleOnSubmit} />;
+  },
 };
 
-export const Waiting = Template.bind({});
+export const Initial = Template.bind({});
+
+export const Submitting = Template.bind({});
+
+Submitting.args = {
+  ...Template.args,
+  onSubmit: async (query) => {
+    action("onSubmit")(query);
+    return new Promise(() => {});
+  },
+};
+
+Submitting.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+
+  await userEvent.type(canvas.getByRole("textbox"), "ajduncombe", {
+    delay: 100,
+  });
+  await userEvent.click(canvas.getByRole("button"));
+};

@@ -3,6 +3,7 @@ import { PropTypes } from "prop-types";
 import { TextField, Button, InputAdornment } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 export function UserSearchInput({ onSubmit }) {
   const [inputValue, setInputValue] = useState("");
@@ -46,16 +47,17 @@ export function UserSearchInput({ onSubmit }) {
       />
 
       {submitting ? (
-        <Button
+        <LoadingButton
           style={{ marginLeft: 20 }}
           variant="contained"
           size="large"
-          disabled
+          loading
+          loadingPosition="start"
           startIcon={<ArrowForwardIosIcon />}
           type="submit"
         >
-          Submitting...
-        </Button>
+          Search
+        </LoadingButton>
       ) : (
         <Button
           style={{ marginLeft: 20 }}

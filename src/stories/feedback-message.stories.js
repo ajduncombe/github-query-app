@@ -8,8 +8,8 @@ export default {
 
 const Template = (args) => <FeedbackMessage {...args} />;
 
-export const Waiting = Template.bind({});
-Waiting.args = {
+export const Initial = Template.bind({});
+Initial.args = {
   submitting: false,
   error: false,
 };
