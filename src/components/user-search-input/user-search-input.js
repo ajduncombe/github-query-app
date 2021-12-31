@@ -9,7 +9,7 @@ export function UserSearchInput({ onSubmit }) {
   const [inputValue, setInputValue] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  const handleOnSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setSubmitting(true);
 
@@ -26,7 +26,7 @@ export function UserSearchInput({ onSubmit }) {
 
   return (
     <form
-      onSubmit={handleOnSubmit}
+      onSubmit={handleSubmit}
       style={{ display: "flex", alignItems: "center" }}
     >
       <TextField

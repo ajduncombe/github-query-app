@@ -30,10 +30,6 @@ Result.args = {
   ...FeedbackMessageStories.Result.args,
 };
 
-// Result.play = async (context) => {
-//   await Submitting.play(context);
-// };
-
 export const Error = Template.bind({});
 Error.args = {
   ...FeedbackMessageStories.Error.args,
