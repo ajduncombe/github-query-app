@@ -3,71 +3,7 @@ import { PropTypes } from "prop-types";
 import { TextField, Button, InputAdornment } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-
-/*
-export function UserSearchInput({
-  submitting,
-  onSubmit,
-  inputValue,
-  onInputValueChange,
-}) {
-  const handleChange = (e) => {
-    onInputValueChange(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSubmit();
-  };
-
-  return (
-    <form
-      onSubmit={handleSubmit}
-      style={{ display: "flex", alignItems: "center" }}
-    >
-      <TextField
-        required
-        id="outlined-required"
-        label="GitHub username"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <AccountCircle />
-            </InputAdornment>
-          ),
-        }}
-        value={inputValue}
-        onChange={handleChange}
-        disabled={submitting}
-      />
-
-      {submitting ? (
-        <Button
-          style={{ marginLeft: 20 }}
-          variant="contained"
-          size="large"
-          disabled
-          startIcon={<ArrowForwardIosIcon />}
-          type="submit"
-        >
-          Submitting...
-        </Button>
-      ) : (
-        <Button
-          style={{ marginLeft: 20 }}
-          variant="contained"
-          size="large"
-          disabled={!inputValue}
-          startIcon={<ArrowForwardIosIcon />}
-          type="submit"
-        >
-          Search
-        </Button>
-      )}
-    </form>
-  );
-}
-*/
+import LoadingButton from "@mui/lab/LoadingButton";
 
 export function UserSearchInput({ onSubmit }) {
   const [inputValue, setInputValue] = useState("");
@@ -94,6 +30,7 @@ export function UserSearchInput({ onSubmit }) {
       style={{ display: "flex", alignItems: "center" }}
     >
       <TextField
+        fullWidth
         required
         id="outlined-required"
         label="GitHub username"
@@ -110,16 +47,17 @@ export function UserSearchInput({ onSubmit }) {
       />
 
       {submitting ? (
-        <Button
+        <LoadingButton
           style={{ marginLeft: 20 }}
           variant="contained"
           size="large"
-          disabled
+          loading
+          loadingPosition="start"
           startIcon={<ArrowForwardIosIcon />}
           type="submit"
         >
-          Submitting...
-        </Button>
+          Search
+        </LoadingButton>
       ) : (
         <Button
           style={{ marginLeft: 20 }}
@@ -137,8 +75,5 @@ export function UserSearchInput({ onSubmit }) {
 }
 
 UserSearchInput.propTypes = {
-  username: PropTypes.string,
   onSubmit: PropTypes.func,
 };
-
-UserSearchInput.defaultProps = {};
