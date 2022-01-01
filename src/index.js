@@ -3,17 +3,26 @@ import ReactDOM from "react-dom";
 import { PropTypes } from "prop-types";
 import { MainView } from "./components/main-view";
 
-export function Container({ inputValue, onSubmit, submitting, error }) {
-  if (submitting) {
-    console.log(`${inputValue}`);
-    const url = `https://api.github.com/users/${inputValue}`;
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-    error = false;
-  }
+export function Container({ submitting, githubResponse, error }) {
+  const onSubmit = (value) => {
+    if (submitting) {
+      console.log(`${value}`);
+      const url = `https://api.github.com/users/${value}`;
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+      error = false;
+    }
+  };
 
-  return <MainView onSubmit={onSubmit} submitting={submitting} error={error} />;
+  return (
+    <MainView
+      onSubmit={onSubmit}
+      submitting={submitting}
+      githubResponse={githubResponse}
+      error={error}
+    />
+  );
 }
 
 ReactDOM.render(
@@ -24,9 +33,8 @@ ReactDOM.render(
 );
 
 Container.propTypes = {
-  inputValue: PropTypes.string,
   onSubmit: PropTypes.func,
   submitting: PropTypes.bool,
-  response: PropTypes.array,
+  githubResponse: PropTypes.array,
   error: PropTypes.bool,
 };
