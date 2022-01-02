@@ -4,7 +4,8 @@ import { PropTypes } from "prop-types";
 import { MainView } from "./components/main-view";
 
 export function Container({ submitting, githubResponse, error }) {
-  const onSubmit = (value) => {
+  const onSubmit = (value, submitting) => {
+    console.log({ submitting });
     if (submitting) {
       console.log(`${value}`);
       const url = `https://api.github.com/users/${value}`;
@@ -12,6 +13,9 @@ export function Container({ submitting, githubResponse, error }) {
         .then((response) => response.json())
         .then((data) => console.log(data));
       error = false;
+      console.log({ error });
+      githubResponse = [{ label: "Username", value: value }];
+      console.log(githubResponse);
     }
   };
 
