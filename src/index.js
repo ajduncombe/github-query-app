@@ -27,11 +27,18 @@ export function Container() {
         setAppState({
           ...{
             githubResponse: [
-              { label: "Username", value: json.login },
-              { label: "Name", value: json.name },
+              {
+                label: "Username",
+                value: json.login == null ? "No data" : json.login,
+              },
+              {
+                label: "Name",
+                value: json.name == null ? "No data" : json.name,
+              },
               {
                 label: "No. of public repos",
-                value: json.public_repos,
+                value:
+                  json.public_repos == null ? "No data" : json.public_repos,
               },
             ],
           },

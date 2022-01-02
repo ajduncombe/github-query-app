@@ -43,7 +43,9 @@ export function FeedbackMessage({ submitting, githubResponse, error }) {
               {githubResponse.map(({ label: parameter, value }) => (
                 <TableRow key={parameter}>
                   <TableCell>{parameter}</TableCell>
-                  <TableCell>{value}</TableCell>
+                  <TableCell>
+                    {value == "No data" ? <em>{value}</em> : value}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
