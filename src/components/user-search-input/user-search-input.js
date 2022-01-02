@@ -12,10 +12,8 @@ export function UserSearchInput({ onSubmit }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     setSubmitting(true);
-    console.log(inputValue);
-    console.log(submitting);
 
-    await onSubmit(inputValue, submitting);
+    await onSubmit(inputValue);
 
     setSubmitting(false);
     setInputValue("");
