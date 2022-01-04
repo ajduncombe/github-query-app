@@ -1,4 +1,4 @@
-import { React } from "react";
+import React from "react";
 import { PropTypes } from "prop-types";
 import { UserSearchInput } from "../user-search-input";
 import { FeedbackMessage } from "../feedback-message";
