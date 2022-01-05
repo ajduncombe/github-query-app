@@ -1,4 +1,4 @@
-import { React } from "react";
+import React from "react";
 import { PropTypes } from "prop-types";
 import {
   Table,
@@ -12,7 +12,7 @@ import Paper from "@mui/material/Paper";
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 
-export function FeedbackMessage({ submitting, response, error }) {
+export function FeedbackMessage({ submitting, githubResponse, error }) {
   if (error) {
     return (
       <Alert severity="error">
@@ -21,11 +21,11 @@ export function FeedbackMessage({ submitting, response, error }) {
     );
   } else if (submitting) {
     return <Alert severity="warning">Please wait.</Alert>;
-  } else if (response) {
+  } else if (githubResponse) {
     return (
       <Box>
         <Alert severity="success">
-          The username &quot;{response[0].value}&quot; was found.
+          The username &quot;{githubResponse[0].value}&quot; was found.
         </Alert>
         <TableContainer component={Paper} sx={{ mt: 2 }}>
           <Table>
@@ -40,10 +40,12 @@ export function FeedbackMessage({ submitting, response, error }) {
               </TableRow>
             </TableHead>
             <TableBody>
-              {response.map(({ label: parameter, value }) => (
+              {githubResponse.map(({ label: parameter, value }) => (
                 <TableRow key={parameter}>
                   <TableCell>{parameter}</TableCell>
-                  <TableCell>{value}</TableCell>
+                  <TableCell>
+                    {value == "No data" ? <em>{value}</em> : value}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -58,7 +60,7 @@ export function FeedbackMessage({ submitting, response, error }) {
 
 FeedbackMessage.propTypes = {
   submitting: PropTypes.bool,
-  response: PropTypes.array,
+  githubResponse: PropTypes.array,
   error: PropTypes.bool,
 };
 

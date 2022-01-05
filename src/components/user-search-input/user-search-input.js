@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import React, { useState } from "react";
 import { PropTypes } from "prop-types";
 import { TextField, Button, InputAdornment } from "@mui/material";
 import AccountCircle from "@mui/icons-material/AccountCircle";
@@ -9,7 +9,7 @@ export function UserSearchInput({ onSubmit }) {
   const [inputValue, setInputValue] = useState("");
   const [submitting, setSubmitting] = useState(false);
 
-  const handleOnSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     setSubmitting(true);
 
@@ -26,7 +26,7 @@ export function UserSearchInput({ onSubmit }) {
 
   return (
     <form
-      onSubmit={handleOnSubmit}
+      onSubmit={handleSubmit}
       style={{ display: "flex", alignItems: "center" }}
     >
       <TextField

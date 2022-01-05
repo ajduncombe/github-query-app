@@ -23,7 +23,7 @@ Submitting.args = {
 export const Result = Template.bind({});
 Result.args = {
   submitting: false,
-  response: [
+  githubResponse: [
     {
       label: "Username",
       value: "ajduncombe",
