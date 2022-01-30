@@ -5,6 +5,7 @@ import { FeedbackMessage } from "../feedback-message";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 
+// MainView is a wrapper for the App's subcomponents, it presents the App in its complete form.
 export function MainView({ onSubmit, submitting, githubResponse, error }) {
   return (
     <Container
