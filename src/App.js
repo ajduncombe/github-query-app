@@ -31,15 +31,15 @@ export function Container() {
           githubResponse: [
             {
               label: "Username",
-              value: json.login == null ? "No data" : json.login,
+              value: json.login ?? <em>No data</em>,
             },
             {
               label: "Name",
-              value: json.name == null ? "No data" : json.name,
+              value: json.name ?? <em>No data</em>,
             },
             {
               label: "No. of public repos",
-              value: json.public_repos == null ? "No data" : json.public_repos,
+              value: json.public_repos ?? <em>No data</em>,
             },
           ],
         }));
@@ -54,16 +54,16 @@ export function Container() {
   };
 
   const onSubmit = async (value) => {
-    if (!appState.submitting) {
-      // appState is changed when the form is submitted: submitting is set to true and the error state reset for the current request.
-      setAppState((prevState) => ({
-        ...prevState,
-        submitting: true,
-        error: false,
-      }));
-      const url = `https://api.github.com/users/${value}`;
-      await fetchUrl(url); // Await the response (i.e. promise) of the fetchUrl function before proceeding.
-    }
+    // Check whether the form is in a submitting state, return if true so no further processing occurs
+    if (appState.submitting) return;
+    // appState is changed when the form is submitted: submitting is set to true and the error state reset for the current request.
+    setAppState((prevState) => ({
+      ...prevState,
+      submitting: true,
+      error: false,
+    }));
+    const url = `https://api.github.com/users/${value}`;
+    await fetchUrl(url); // Await the response (i.e. promise) of the fetchUrl function before proceeding.
   };
 
   return (
