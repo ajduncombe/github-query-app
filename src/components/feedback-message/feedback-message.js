@@ -12,6 +12,7 @@ import Paper from "@mui/material/Paper";
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 
+// FeedbackMessage presents a response to the user depending on the current state of the App.
 export function FeedbackMessage({ submitting, githubResponse, error }) {
   if (error) {
     return (
@@ -22,6 +23,8 @@ export function FeedbackMessage({ submitting, githubResponse, error }) {
   } else if (submitting) {
     return <Alert severity="warning">Please wait.</Alert>;
   } else if (githubResponse) {
+    // The username entered is confirmed in the response message.
+    // The table data uses a unique key, this is to help React identify where items change.
     return (
       <Box>
         <Alert severity="success">
@@ -43,9 +46,7 @@ export function FeedbackMessage({ submitting, githubResponse, error }) {
               {githubResponse.map(({ label: parameter, value }) => (
                 <TableRow key={parameter}>
                   <TableCell>{parameter}</TableCell>
-                  <TableCell>
-                    {value == "No data" ? <em>{value}</em> : value}
-                  </TableCell>
+                  <TableCell>{value}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -54,6 +55,7 @@ export function FeedbackMessage({ submitting, githubResponse, error }) {
       </Box>
     );
   } else {
+    // This is the initial message shown when the App is first accessed.
     return <Alert severity="info">Your results will appear below.</Alert>;
   }
 }
