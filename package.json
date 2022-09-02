@@ -1,6 +1,7 @@
 {
   "name": "github-query-app",
   "version": "0.1.0",
+  "homepage": "https://ajduncombe.github.io/github-query-app/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.4.1",
