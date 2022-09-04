@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# GitHub Query App
+[React](https://reactjs.org/) based single page application that leverages the [GitHub REST API](https://docs.github.com/en/rest).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Demo:**  
+[https://ajduncombe.github.io/github-query-app/](https://ajduncombe.github.io/github-query-app/)
 
-## Available Scripts
+## Application overview
 
-In the project directory, you can run:
+This is a simple app that takes a username input. If the input is a valid GitHub username, then that user's name (if available) and number of public repositories are displayed. A warning message is returned if the username is invalid.
 
-### `yarn start`
+This project was undertaken to aid in learning React and act as a demo for the following concepts:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Compositional React component patterns
+- React project directory structure
+- Leveraging the [MUI](https://mui.com/) component library
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting started
 
-### `yarn test`
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+See deployment for notes on how to deploy the project on a live system.
 
-### `yarn build`
+### Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get this project up and running on your local system you'll need both [npm](https://www.npmjs.com) and [node.js](https://nodejs.org/en/) installed on your development system.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To install all dependencies required for the project, clone or download the source `cd` into the project root and from your terminal run:
 
-### `yarn eject`
+```bash
+npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Local development / testing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The project uses [Create React App](https://create-react-app.dev/), which includes a local development server `cd` into the project root and run the following command from the terminal:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+npm start
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Create React App will build a development version of the app. The localhost / local network preview address will be printed to the console.
 
-## Learn More
+## Deployment
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To build a production copy for deployment `cd` into the project root and run the following command from your terminal:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm run build
+```
 
-### Code Splitting
+## Built with
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [React](https://reactjs.org/) &ndash; JavaScript UI development library
+- [MUI](https://mui.com/) &ndash; Material UI component library
 
-### Analyzing the Bundle Size
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Built by Andrew Duncombe &ndash; [ajduncombe](https://github.com/ajduncombe)
 
-### Making a Progressive Web App
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License &ndash; see the [LICENSE.txt](https://github.com/ajduncombe/github-query-app/blob/main/LICENSE.txt) file for details.
