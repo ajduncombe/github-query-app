@@ -1,4 +1,5 @@
 # GitHub Query App
+
 [React](https://reactjs.org/) based single page application that leverages the [GitHub REST API](https://docs.github.com/en/rest).
 
 **Demo:**  
@@ -16,7 +17,7 @@ This project was undertaken to aid in learning React and act as a demo for the f
 
 ## Getting started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 See deployment for notes on how to deploy the project on a live system.
 
@@ -54,6 +55,7 @@ npm run build
 
 - [React](https://reactjs.org/) &ndash; JavaScript UI development library
 - [MUI](https://mui.com/) &ndash; Material UI component library
+- [Cypress](https://www.cypress.io/) &ndash; Front end testing tool
 
 ## Author
 
