@@ -16,18 +16,22 @@ import Box from "@mui/material/Box";
 export function FeedbackMessage({ submitting, githubResponse, error }) {
   if (error) {
     return (
-      <Alert severity="error">
+      <Alert data-test="alert-error" severity="error">
         There was an error. Please check your input and try again.
       </Alert>
     );
   } else if (submitting) {
-    return <Alert severity="warning">Please wait.</Alert>;
+    return (
+      <Alert data-test="alert-warning" severity="warning">
+        Please wait.
+      </Alert>
+    );
   } else if (githubResponse) {
     // The username entered is confirmed in the response message.
     // The table data uses a unique key, this is to help React identify where items change.
     return (
       <Box>
-        <Alert severity="success">
+        <Alert data-test="alert-success" severity="success">
           The username &quot;{githubResponse[0].value}&quot; was found.
         </Alert>
         <TableContainer component={Paper} sx={{ mt: 2 }}>
@@ -56,7 +60,11 @@ export function FeedbackMessage({ submitting, githubResponse, error }) {
     );
   } else {
     // This is the initial message shown when the App is first accessed.
-    return <Alert severity="info">Your results will appear below.</Alert>;
+    return (
+      <Alert data-test="alert-info" severity="info">
+        Your results will appear below.
+      </Alert>
+    );
   }
 }
 

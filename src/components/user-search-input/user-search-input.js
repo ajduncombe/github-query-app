@@ -36,6 +36,7 @@ export function UserSearchInput({ onSubmit }) {
     >
       {/* TextField is disabled when the form is submitting to prevent further input. */}
       <TextField
+        data-test="text-field"
         fullWidth
         required
         id="outlined-required"
@@ -55,6 +56,7 @@ export function UserSearchInput({ onSubmit }) {
       {/* LoadingButton changes depending on the submitting state of the form and whether TextField is empty or not. */}
       {submitting ? (
         <LoadingButton
+          data-test="loading-button"
           style={{ marginLeft: 20 }}
           variant="contained"
           size="large"
@@ -67,6 +69,7 @@ export function UserSearchInput({ onSubmit }) {
         </LoadingButton>
       ) : (
         <Button
+          data-test="submit-button"
           style={{ marginLeft: 20 }}
           variant="contained"
           size="large"
