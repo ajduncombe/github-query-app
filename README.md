@@ -55,7 +55,7 @@ npm run build
 
 - [React](https://reactjs.org/) &ndash; JavaScript UI development library
 - [MUI](https://mui.com/) &ndash; Material UI component library
-- [Cypress](https://www.cypress.io/) &ndash; Front end testing tool
+- [Cypress](https://www.cypress.io/) &ndash; JavaScript testing framework
 
 ## Author
 
